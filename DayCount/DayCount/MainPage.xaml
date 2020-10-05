@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="DayCount.MainPage">
+
+    <StackLayout>
+        <!-- Place new controls here -->
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinitions />
+                <RowDefinitions />
+            </Grid.RowDefinitions>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+
+            </Grid.ColumnDefinitions>
+            <Label Text="날짜 :" Grid.Row="0" Grid.Column="0" BackgroundColor="Red"/>
+            <Label Text="2020-05-13" Grid.Row="0" Grid.Column="1" BackgroundColor="Yellow"/>
+            <Label Text="계산 : " Grid.Row="1" Grid.Column="0" BackgroundColor="Green"/>
+            <Label Text="500"     Grid.Row="1" Grid.Column="1" BackgroundColor="Gray"/>
+            <Button Text="수정"   Grid.Row="0" Grid.Column="2" BackgroundColor="Aqua"/>
+
+        </Grid>
+    </StackLayout>
+
+</ContentPage>
