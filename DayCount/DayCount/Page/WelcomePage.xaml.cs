@@ -19,11 +19,11 @@ namespace DayCount.Page
         protected override async void OnAppearing()
         {
             base.OnAppearing();
-            await WelcomeImg.ScaleTo(1, 1000);
+            /*await WelcomeImg.ScaleTo(1, 1000);
             await WelcomeImg.ScaleTo(0.9, 300);
             await WelcomeImg.ScaleTo(1.1, 300);
             await WelcomeImg.ScaleTo(0.9, 300);
-            await WelcomeImg.ScaleTo(1.1, 300);
+            await WelcomeImg.ScaleTo(1.1, 300);*/
             Application.Current.MainPage = new NavigationPage(new MainPage());
         }
     }
