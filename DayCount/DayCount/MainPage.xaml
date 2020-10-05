@@ -4,7 +4,9 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
-             x:Class="DayCount.MainPage">
+             x:Class="DayCount.MainPage"
+             x:Name="main"
+             NavigationPage.HasNavigationBar="False">
 
     <StackLayout Margin="0,30,0,0">
         <!-- Place new controls here -->
@@ -18,11 +20,11 @@
                     <Label Text="날짜 :2020-05-18" FontSize="Large" BackgroundColor="Red" HeightRequest="40"/>
                     <Label Text="계산 : 353 " FontSize="Large"  BackgroundColor="Green" HeightRequest="40"/>
                 </StackLayout>
-                <Button Text="수정"   VerticalOptions="Start" BackgroundColor="Aqua" HeightRequest="80" WidthRequest="40"/>
+                <Button Text="수정"   VerticalOptions="Start" BackgroundColor="Aqua" HeightRequest="80" WidthRequest="40" Clicked="Button_Clicked"/>
             </StackLayout>
             <StackLayout Grid.Row="1">
 
-            <ListView x:Name="listview" ItemsSource="{Binding DayEventModel}" BackgroundColor="Black">
+                <ListView x:Name="listview" ItemsSource="{Binding Path=BindingContext, Source={x:Reference main}}" BackgroundColor="Blue">
                 <ListView.ItemTemplate >
                     <DataTemplate >
                         <ViewCell>
@@ -31,11 +33,12 @@
                                     <Grid.ColumnDefinitions>
                                         <ColumnDefinition Width="1*"/>
                                         <ColumnDefinition Width="1*"/>
+                                        <ColumnDefinition Width="1*"/>
                                     </Grid.ColumnDefinitions>
-                                    
-                                    <Label Grid.Column="0" Text="{Binding EventName }"></Label>
-                                    <Label Grid.Column="1" Text="{Binding EventDay}"></Label>
-                                    <Label Grid.Column="1" Text="{Binding EventDDay}"></Label>
+
+                                        <Label Grid.Column="0" Text="{Binding EventName}"></Label>
+                                        <Label Grid.Column="1" Text="{Binding EventDay}"></Label>
+                                        <Label Grid.Column="2" Text="{Binding EventDDay}"></Label>
                                 </Grid>
                             </ViewCell.View>
                         </ViewCell>

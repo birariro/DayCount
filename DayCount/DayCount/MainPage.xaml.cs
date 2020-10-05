@@ -14,8 +14,25 @@ namespace DayCount
     [DesignTimeVisible(false)]
     public partial class MainPage : ContentPage
     {
+        
+        public MainPage()
+        {
+            InitializeComponent();
+            setEventList();
+            BindingContext = DayEventModel;
+
+
+            /*string tagData = "2020-10-05";
+
+            DateTime tagDay = DateTime.Parse(tagData);
+            DateTime toDay = DateTime.Parse(DateTime.Now.ToString("yyyy-MM-dd"));
+            TimeSpan span = toDay - tagDay;
+            int day = span.Days;
+            
+            Console.WriteLine(day);*/
+        }
         private ObservableCollection<DayEvent> _DayEventModel = new ObservableCollection<DayEvent>();
-        public ObservableCollection<DayEvent> DayEventModel 
+        public ObservableCollection<DayEvent> DayEventModel
         {
             get
             {
@@ -27,20 +44,40 @@ namespace DayCount
                 OnPropertyChanged(nameof(DayEventModel));
             }
         }
-
-        public MainPage()
+        public void setEventList()
         {
-            InitializeComponent();
-            setEventList();
-            BindingContext = DayEventModel;
-            /*string tagData = "2020-10-05";
+            DayEventModel.Add(new DayEvent()
+            {
+                EventName = "1000",
+                EventDay = "2020-10-10",
+                EventDDay = "-8"
+            });
 
-            DateTime tagDay = DateTime.Parse(tagData);
-            DateTime toDay = DateTime.Parse(DateTime.Now.ToString("yyyy-MM-dd"));
-            TimeSpan span = toDay - tagDay;
-            int day = span.Days;
-            
-            Console.WriteLine(day);*/
+        }
+
+        private void Button_Clicked(object sender, EventArgs e)
+        {
+            setEventList();
+        }
+    }
+    /*public class binder : BindableObject, INotifyPropertyChanged
+    {
+       public binder() { 
+        setEventList();
+        }
+
+        private ObservableCollection<DayEvent> _DayEventModel = new ObservableCollection<DayEvent>();
+        public ObservableCollection<DayEvent> DayEventModel
+        {
+            get
+            {
+                return _DayEventModel;
+            }
+            set
+            {
+                _DayEventModel = value;
+                OnPropertyChanged(nameof(DayEventModel));
+            }
         }
         public void setEventList()
         {
@@ -54,7 +91,7 @@ namespace DayCount
         }
 
 
-    }
+    }*/
     public class DayEvent
     {
         public string EventName { get; set; }
