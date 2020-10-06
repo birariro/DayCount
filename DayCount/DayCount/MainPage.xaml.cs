@@ -18,22 +18,17 @@ namespace DayCount
         public MainPage()
         {
             InitializeComponent();
+
             setEventList();
+            SetDayCntText();
             BindingContext = DayEventModel;
-
-
-            /*string tagData = "2020-10-05";
-
-            DateTime tagDay = DateTime.Parse(tagData);
-            DateTime toDay = DateTime.Parse(DateTime.Now.ToString("yyyy-MM-dd"));
-            TimeSpan span = toDay - tagDay;
-            int day = span.Days;
             
-            Console.WriteLine(day);*/
         }
+
         private ObservableCollection<DayEvent> _DayEventModel = new ObservableCollection<DayEvent>();
         public ObservableCollection<DayEvent> DayEventModel
         {
+            
             get
             {
                 return _DayEventModel;
@@ -54,10 +49,35 @@ namespace DayCount
             });
 
         }
-
+        private int _Dayday = 0;
+        public int Dayday
+        {
+            get 
+            {
+                return  _Dayday;
+            }
+            set 
+            {
+                _Dayday = value;
+                OnPropertyChanged(nameof(Dayday));
+            }
+            
+        }
         private void Button_Clicked(object sender, EventArgs e)
         {
             setEventList();
+        }
+        private void SetDayCntText()
+        {
+            string tagData = "2020-9-05";
+
+            DateTime tagDay = DateTime.Parse(tagData);
+            DateTime toDay = DateTime.Parse(DateTime.Now.ToString("yyyy-MM-dd"));
+            TimeSpan span = toDay - tagDay;
+            int day = span.Days;
+            Dayday = day;
+            System.Diagnostics.Debug.WriteLine(day);
+            //DayCntText.Text = day.ToString();
         }
     }
     /*public class binder : BindableObject, INotifyPropertyChanged

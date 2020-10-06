@@ -5,9 +5,10 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
              x:Class="DayCount.MainPage"
-             x:Name="main"
+             x:Name="main" 
              NavigationPage.HasNavigationBar="False">
 
+    
     <StackLayout Margin="0,30,0,0">
         <!-- Place new controls here -->
         <Grid>
@@ -18,7 +19,7 @@
             <StackLayout Orientation="Horizontal" Grid.Row="0"  HorizontalOptions="CenterAndExpand">
                 <StackLayout Orientation="Vertical">
                     <Label Text="날짜 :2020-05-18" FontSize="Large" BackgroundColor="Red" HeightRequest="40"/>
-                    <Label Text="계산 : 353 " FontSize="Large"  BackgroundColor="Green" HeightRequest="40"/>
+                    <Label x:Name="DayCntText" Text="{Binding  Source={x:Reference main} ,Path=Dayday }"  FontSize="Large"  BackgroundColor="Green" HeightRequest="40"/>
                 </StackLayout>
                 <Button Text="수정"   VerticalOptions="Start" BackgroundColor="Aqua" HeightRequest="80" WidthRequest="40" Clicked="Button_Clicked"/>
             </StackLayout>
@@ -36,7 +37,7 @@
                                         <ColumnDefinition Width="1*"/>
                                     </Grid.ColumnDefinitions>
 
-                                        <Label Grid.Column="0" Text="{Binding EventName}"></Label>
+                                        <Label Grid.Column="0" Text="{Binding EventName }"></Label>
                                         <Label Grid.Column="1" Text="{Binding EventDay}"></Label>
                                         <Label Grid.Column="2" Text="{Binding EventDDay}"></Label>
                                 </Grid>
