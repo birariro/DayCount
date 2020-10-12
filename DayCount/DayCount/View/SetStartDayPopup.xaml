@@ -3,21 +3,29 @@
                   xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="DayCount.View.SetStartDayPopup">
-    <StackLayout Margin="12"
+    <StackLayout
 			 Padding="24"
 			 Spacing="24"
 			 BackgroundColor="White"
 			 HorizontalOptions="Center"
-			 VerticalOptions="Center">
+			 VerticalOptions="Center"
+                 Orientation ="Vertical">
 
-			<StackLayout Orientation="Horizontal">
-				<Label Text="StartDay" VerticalOptions="Center"/>
-				<Entry FontSize="15"
-                       />
-			</StackLayout>
-			<Button BackgroundColor="DodgerBlue"
-					FontSize="30"
-					Text="Login"
+		<StackLayout Orientation="Horizontal">
+			<Label Text="StartDay" VerticalOptions="Center"/>
+            <Entry FontSize="15" Text="1999" x:Name="UserStartYear" />
+            <Label Text="-" VerticalOptions="Center"/>
+            <Entry FontSize="15" Text="12" x:Name="UserStartmonth"/>
+            <Label Text="-" VerticalOptions="Center"/>
+            <Entry FontSize="15" Text="16" x:Name="UserStartdate"/>
+        </StackLayout>
+        <StackLayout Orientation="Horizontal">
+            <Label Text="1일부터"   FontSize="Default"    HeightRequest="40" VerticalOptions="CenterAndExpand" VerticalTextAlignment="Center"/>
+            <CheckBox VerticalOptions="Center" x:Name="UserStartOneDayCheck"/>
+        </StackLayout>
+        <Button BackgroundColor="DodgerBlue"
+					FontSize="20"
+					Text="SetUp"
 					TextColor="Wheat"
 					Clicked="SetDay_Clicked"/>
     </StackLayout>

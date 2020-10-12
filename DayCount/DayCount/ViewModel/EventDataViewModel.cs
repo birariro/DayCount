@@ -64,30 +64,19 @@ namespace DayCount.ViewModel
             DayEventModel = new ObservableCollection<EventDataModel>();
             DayCount = _SettingDataModel.DayCount;
             StartDay = _SettingDataModel.StartDay;
-            //SetDayCntText();
+            SetDayCntText(false);
             SettingTap = new Command(() => SetSettingStartDay());
-            OneDayCheck = new Command((e) => SetCheck(e));
+            //OneDayCheck = new Command((e) => SetDayCntText(e));
         }
         private void SetSettingStartDay()
         {
             PopupNavigation.Instance.PushAsync(new SetStartDayPopup());
             //string result = await DisplayPromptAsync("Question 2", "What's 5 + 5?", initialValue: "10", maxLength: 2, keyboard: Keyboard.Numeric);
         }
-        private void SetCheck(object e)
-        {
-            System.Diagnostics.Debug.WriteLine("ADF");
-
-            /*var value = e as GestureRecognizer;
-            
-            System.Diagnostics.Debug.WriteLine(value.IsChecked.ToString());
-            */
-
-            
-
-        }
         public void SetDayCntText(bool oneDayCheck)
         {
             DayEventModel.Clear();
+            start("", "", "");
             string _StartString = "2020-10-07";
             StartDay = _StartString;
 

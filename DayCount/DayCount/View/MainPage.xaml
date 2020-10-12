@@ -6,51 +6,34 @@
              mc:Ignorable="d"
              x:Class="DayCount.MainPage"
              x:Name="main" 
-             NavigationPage.HasNavigationBar="False">
+             NavigationPage.HasNavigationBar="False"
+             BackgroundColor="#66D1FF">
 
-    
-    <StackLayout Margin="0,30,0,0">
-        <!-- Place new controls here -->
+  
+    <AbsoluteLayout Margin="0,30,0,0" >
+
         <Grid>
             <Grid.RowDefinitions>
-                <RowDefinition Height="2*"/>
-                <RowDefinition Height="8*"/>
+                <RowDefinition />
+                <RowDefinition  />
             </Grid.RowDefinitions>
-            
-            <StackLayout Orientation="Horizontal" Grid.Row="0"  HorizontalOptions="CenterAndExpand">
-                <StackLayout Orientation="Vertical">
-                    <StackLayout Orientation="Horizontal" Margin="40,0,0,0">
-                        <Label Text="날짜 :" FontSize="Large" BackgroundColor="Red" HeightRequest="40"/>
-                        <Label Text="{Binding StartDay}" FontSize="Large" BackgroundColor="Red" HeightRequest="40"/>
+
+          
+            <StackLayout Orientation="Horizontal" Grid.Row="0"  HorizontalOptions="CenterAndExpand" VerticalOptions="Center">
+          
+                   
+                        <Label Text="시작 날짜 :" FontSize="Large" TextColor="#586EE0" HeightRequest="40"/>
+                        <Label Text="{Binding StartDay}" FontSize="Large" TextColor="#586EE0" HeightRequest="40"/>
                         <Image Source="setting" VerticalOptions="Center"  HeightRequest="30" WidthRequest="30" HorizontalOptions="Center">
                             <Image.GestureRecognizers>
                                 <TapGestureRecognizer Command="{Binding SettingTap}"/>
                             </Image.GestureRecognizers>
                         </Image>
-                    </StackLayout>
-                    
-                    <StackLayout Orientation="Horizontal" Margin="40,0,0,0">
-                        
-                        <Label x:Name="DayCntText" Text="{Binding DayCount}"  FontSize="Large"  BackgroundColor="Green" HeightRequest="40"/>
-                        <Label Text="일"  FontSize="Large"  BackgroundColor="Green" HeightRequest="40"/>
-                        <Label Text="1일부터"   FontSize="Default"    HeightRequest="40" VerticalOptions="CenterAndExpand" VerticalTextAlignment="Center"/>
-                        <CheckBox VerticalOptions="Center" CheckedChanged="CheckBox_CheckedChanged">
-                           
-                           
-                        </CheckBox>
-                    </StackLayout>
-
-                    <StackLayout Orientation="Horizontal" Margin="80,0,0,0">
-                        
-                    </StackLayout>
-                </StackLayout>
-                
-                
-
+                 
             </StackLayout>
-            <StackLayout Grid.Row="1">
+            <StackLayout Grid.Row="1" >
 
-                <ListView x:Name="listview" ItemsSource="{Binding Source={x:Reference main} , Path=BindingContext.DayEventModel}" BackgroundColor="Blue">
+                <ListView x:Name="listview" ItemsSource="{Binding Source={x:Reference main} , Path=BindingContext.DayEventModel}" BackgroundColor="White">
                 <ListView.ItemTemplate >
                     <DataTemplate >
                         <ViewCell>
@@ -76,6 +59,21 @@
 
             </StackLayout>
         </Grid>
-    </StackLayout>
+
+        <Grid  AbsoluteLayout.LayoutBounds="0,0,1,1"  AbsoluteLayout.LayoutFlags="All" HorizontalOptions="FillAndExpand" VerticalOptions="CenterAndExpand"   Margin="14" >
+            <Frame CornerRadius="15">
+
+                <StackLayout Orientation="Horizontal" Padding="14" AbsoluteLayout.LayoutBounds="0,0,1,1"  AbsoluteLayout.LayoutFlags="All"  HorizontalOptions="Center">
+
+                    <Label Text="벌써 "  FontSize="Large"  TextColor="#586EE0" HeightRequest="40" />
+                    <Label x:Name="DayCntText" Text="{Binding DayCount}"  FontSize="Large"  TextColor="#586EE0" HeightRequest="40" />
+                    <Label Text="일"  FontSize="Large"  TextColor="#586EE0" HeightRequest="40"/>
+                </StackLayout>
+            </Frame>
+        </Grid>
+        
+        
+        <!-- Place new controls here -->
+    </AbsoluteLayout>
 
 </ContentPage>
