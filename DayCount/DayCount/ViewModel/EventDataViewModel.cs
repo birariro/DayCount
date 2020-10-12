@@ -1,10 +1,13 @@
 ﻿using DayCount.Model;
+using DayCount.View;
+using Rg.Plugins.Popup.Services;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Security.Cryptography;
 using System.Text;
+using System.Threading.Tasks;
 using System.Windows.Input;
 using Xamarin.Forms;
 
@@ -62,10 +65,15 @@ namespace DayCount.ViewModel
             DayCount = _SettingDataModel.DayCount;
             StartDay = _SettingDataModel.StartDay;
             //SetDayCntText();
-            //SettingTap = new Command(() => SetDayCntText());
-            OneDayCheck = new Command((e) => setCheck(e));
+            SettingTap = new Command(() => SetSettingStartDay());
+            OneDayCheck = new Command((e) => SetCheck(e));
         }
-        private void setCheck(object e)
+        private void SetSettingStartDay()
+        {
+            PopupNavigation.Instance.PushAsync(new SetStartDayPopup());
+            //string result = await DisplayPromptAsync("Question 2", "What's 5 + 5?", initialValue: "10", maxLength: 2, keyboard: Keyboard.Numeric);
+        }
+        private void SetCheck(object e)
         {
             System.Diagnostics.Debug.WriteLine("ADF");
 

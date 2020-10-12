@@ -21,7 +21,7 @@
                 <StackLayout Orientation="Vertical">
                     <StackLayout Orientation="Horizontal" Margin="40,0,0,0">
                         <Label Text="날짜 :" FontSize="Large" BackgroundColor="Red" HeightRequest="40"/>
-                        <Label Text="{Binding Source={x:Reference main},Path=BindingContext.StartDay}" FontSize="Large" BackgroundColor="Red" HeightRequest="40"/>
+                        <Label Text="{Binding StartDay}" FontSize="Large" BackgroundColor="Red" HeightRequest="40"/>
                         <Image Source="setting" VerticalOptions="Center"  HeightRequest="30" WidthRequest="30" HorizontalOptions="Center">
                             <Image.GestureRecognizers>
                                 <TapGestureRecognizer Command="{Binding SettingTap}"/>
@@ -31,7 +31,7 @@
                     
                     <StackLayout Orientation="Horizontal" Margin="40,0,0,0">
                         
-                        <Label x:Name="DayCntText" Text="{Binding Source={x:Reference main} , Path=BindingContext.DayCount}"  FontSize="Large"  BackgroundColor="Green" HeightRequest="40"/>
+                        <Label x:Name="DayCntText" Text="{Binding DayCount}"  FontSize="Large"  BackgroundColor="Green" HeightRequest="40"/>
                         <Label Text="일"  FontSize="Large"  BackgroundColor="Green" HeightRequest="40"/>
                         <Label Text="1일부터"   FontSize="Default"    HeightRequest="40" VerticalOptions="CenterAndExpand" VerticalTextAlignment="Center"/>
                         <CheckBox VerticalOptions="Center" CheckedChanged="CheckBox_CheckedChanged">
