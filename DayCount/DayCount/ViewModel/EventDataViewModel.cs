@@ -9,6 +9,7 @@ using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
+using Xamarin.Essentials;
 using Xamarin.Forms;
 
 namespace DayCount.ViewModel
@@ -64,20 +65,35 @@ namespace DayCount.ViewModel
             DayEventModel = new ObservableCollection<EventDataModel>();
             DayCount = _SettingDataModel.DayCount;
             StartDay = _SettingDataModel.StartDay;
-            SetDayCntText(false);
+            SetDayCntText();
             SettingTap = new Command(() => SetSettingStartDay());
             //OneDayCheck = new Command((e) => SetDayCntText(e));
         }
-        private void SetSettingStartDay()
+        private async Task SetSettingStartDay()
         {
-            PopupNavigation.Instance.PushAsync(new SetStartDayPopup());
-            //string result = await DisplayPromptAsync("Question 2", "What's 5 + 5?", initialValue: "10", maxLength: 2, keyboard: Keyboard.Numeric);
+            SetStartDayPopup setStartDayPopup = new SetStartDayPopup();
+            PopupNavigation.Instance.PushAsync(setStartDayPopup);
+            bool EndCheck = await setStartDayPopup.EndCheck();
+            if (EndCheck == true)
+            {
+                System.Diagnostics.Debug.WriteLine("정상종료");
+                SetDayCntText(); //정상 종료라면
+            }
+
+
         }
-        public void SetDayCntText(bool oneDayCheck)
+        public void SetDayCntText()
         {
+
+            string StartYear = Preferences.Get("StartYear", DateTime.Now.ToString("yyyy"));
+            string Startmonth = Preferences.Get("Startmonth", DateTime.Now.ToString("MM"));
+            string Startdate = Preferences.Get("Startdate", DateTime.Now.ToString("dd"));
+            bool oneDayCheck = Preferences.Get("userFlag", false);
+
             DayEventModel.Clear();
             start("", "", "");
-            string _StartString = "2020-10-07";
+            //string _StartString = "2020-10-07";
+            string _StartString = StartYear+"-"+ Startmonth+"-" + Startdate;
             StartDay = _StartString;
 
             DateTime StartStrDay = DateTime.Parse(_StartString); //시작날짜
@@ -148,6 +164,8 @@ namespace DayCount.ViewModel
         }
         private void start(string EventDay, string EventName, string EventD_Day)
         {
+            if (EventD_Day.Length >0) EventD_Day = "D-Day : " + EventD_Day; ;
+
             DayEventModel.Add(new EventDataModel()
             {
                 EventDay = EventDay,

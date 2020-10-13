@@ -17,7 +17,7 @@ namespace DayCount
     public partial class MainPage : ContentPage
     {
         bool oneDayCheck = true;
-       EventDataViewModel EventDataViewModel = new EventDataViewModel();
+        EventDataViewModel EventDataViewModel = new EventDataViewModel();
         public MainPage()
         {
             InitializeComponent();
@@ -26,12 +26,12 @@ namespace DayCount
             
         }
 
-        private void CheckBox_CheckedChanged(object sender, CheckedChangedEventArgs e)
+      /*  private void CheckBox_CheckedChanged(object sender, CheckedChangedEventArgs e)
         {
             var check = sender as CheckBox;
             var vm = this.BindingContext as EventDataViewModel;
-            vm.SetDayCntText(check.IsChecked);
-        }
+            vm.SetDayCntText();
+        }*/
     }
   
  

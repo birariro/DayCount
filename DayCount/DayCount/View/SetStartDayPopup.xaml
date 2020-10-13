@@ -3,30 +3,33 @@
                   xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="DayCount.View.SetStartDayPopup">
+    
     <StackLayout
-			 Padding="24"
 			 Spacing="24"
 			 BackgroundColor="White"
 			 HorizontalOptions="Center"
 			 VerticalOptions="Center"
                  Orientation ="Vertical">
-
-		<StackLayout Orientation="Horizontal">
-			<Label Text="StartDay" VerticalOptions="Center"/>
-            <Entry FontSize="15" Text="1999" x:Name="UserStartYear" />
-            <Label Text="-" VerticalOptions="Center"/>
-            <Entry FontSize="15" Text="12" x:Name="UserStartmonth"/>
-            <Label Text="-" VerticalOptions="Center"/>
-            <Entry FontSize="15" Text="16" x:Name="UserStartdate"/>
+        <StackLayout BackgroundColor="#586EE0" HeightRequest="40" HorizontalOptions="FillAndExpand" WidthRequest="30">
+            <Label Text="Setting" HorizontalOptions="Center" VerticalOptions="CenterAndExpand" TextColor="White" FontSize="20"/>
         </StackLayout>
-        <StackLayout Orientation="Horizontal">
-            <Label Text="1일부터"   FontSize="Default"    HeightRequest="40" VerticalOptions="CenterAndExpand" VerticalTextAlignment="Center"/>
-            <CheckBox VerticalOptions="Center" x:Name="UserStartOneDayCheck"/>
+        <StackLayout Orientation="Horizontal" Margin="15,0,15,0">
+            <Label Text="StartDay" TextColor="#586EE0" VerticalOptions="Center"/>
+            <Entry FontSize="15"  x:Name="UserStartYear" />
+            <Label Text="-" TextColor="#586EE0" VerticalOptions="Center"/>
+            <Entry FontSize="15"  x:Name="UserStartmonth"/>
+            <Label Text="-" TextColor="#586EE0" VerticalOptions="Center"/>
+            <Entry FontSize="15"  x:Name="UserStartdate"/>
         </StackLayout>
-        <Button BackgroundColor="DodgerBlue"
+        <StackLayout Orientation="Horizontal" Margin="15,0,15,0">
+            <Label Text="1일부터"   FontSize="Default" TextColor="#586EE0"  HeightRequest="40" VerticalOptions="CenterAndExpand" VerticalTextAlignment="Center"/>
+            <CheckBox VerticalOptions="Center" x:Name="UserStartOneDayCheck" Color="#586EE0"/>
+        </StackLayout>
+        <Button BackgroundColor="White"
 					FontSize="20"
-					Text="SetUp"
-					TextColor="Wheat"
-					Clicked="SetDay_Clicked"/>
+					Text="Setup"
+					TextColor="#586EE0"
+					Clicked="SetDay_Clicked"
+                Margin="15"/>
     </StackLayout>
 </Pages:PopupPage>
