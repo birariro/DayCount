@@ -6,11 +6,13 @@
              mc:Ignorable="d"
              x:Class="DayCount.MainPage"
              x:Name="main" 
+             xmlns:listviewLen="clr-namespace:DayCount.Renderer"
+             
              NavigationPage.HasNavigationBar="False"
              BackgroundColor="#66D1FF">
 
   
-    <AbsoluteLayout Margin="0,30,0,0" >
+    <AbsoluteLayout Margin="0,0,0,0" >
 
         <Grid>
             <Grid.RowDefinitions>
@@ -33,9 +35,10 @@
             </StackLayout>
             <StackLayout Grid.Row="1" >
 
-                <ListView x:Name="listview" ItemsSource="{Binding Source={x:Reference main} , Path=BindingContext.DayEventModel}" BackgroundColor="#66D1FF">
-                <ListView.ItemTemplate >
+                <ListView x:Name="listview" ItemsSource="{Binding Source={x:Reference main} , Path=BindingContext.DayEventModel}" BackgroundColor="#66D1FF" SelectionMode="None" >
+                    <ListView.ItemTemplate >
                     <DataTemplate >
+                        
                         <ViewCell>
                             <ViewCell.View>
                                 <Grid>
